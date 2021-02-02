@@ -7240,7 +7240,7 @@ $social-sharing-link-border-color: rgba($color-body-text, 0.1);
 
   40% {
     opacity: 1;
-  }  
+  }
 }
 
 @include keyframes(sk-circleFadeDelay) {
@@ -9195,3 +9195,48 @@ $fast-drawer-transition: transform 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 }
 
+{% comment %}
+
+===================================
+Custom Theme Modifications Below
+===================================
+
+===================================
+Variables
+===================================
+
+{% endcomment %}
+
+$cream: #f4f2f0;
+
+{% comment %}
+
+===================================
+Variables End
+===================================
+
+{% endcomment %}
+
+{% comment %}
+
+===================================
+Header
+===================================
+
+{% endcomment %}
+
+.site-header--transparent {
+    background-color: $cream;
+}
+
+.site-header-sections {
+    flex-direction: row-reverse;
+}
+
+{% comment %}
+
+===================================
+Header End
+===================================
+
+{% endcomment %}
