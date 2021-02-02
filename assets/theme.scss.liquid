@@ -9208,6 +9208,7 @@ Variables
 {% endcomment %}
 
 $cream: #f4f2f0;
+$bp-tablet: 768px;
 
 {% comment %}
 
@@ -9229,8 +9230,20 @@ Header
     background-color: $cream;
 }
 
+.site-header__navigation {
+
+    @media only screen and (min-width: $bp-tablet) {
+        display: none;
+    }
+}
+
 .site-header-sections {
     flex-direction: row-reverse;
+}
+
+.social-links--large .icon {
+    height: 33px;
+    width: 33px;
 }
 
 {% comment %}
