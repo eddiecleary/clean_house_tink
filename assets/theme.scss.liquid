@@ -9239,10 +9239,19 @@ Header
 
 .site-header__section {
     align-items: center;
+    justify-content: flex-start;
+
+    @media only screen and (min-width: $bp-tablet) {
+        justify-content: center;
+    }
+}
+
+.site-header__logo-image {
+    max-height: 45px;
 }
 
 .navigation__link .site-header__custom-nav-link {
-    font-size: rem(14);
+    font-size: rem(12);
     margin-bottom: -7px;
     display: none;
 
@@ -9251,12 +9260,29 @@ Header
     }
 }
 
+.navigation__social-sharing.site-header__custom-social-link {
+    display: none;
+    @media only screen and (min-width: $bp-tablet) {
+        margin: 0;
+        position: absolute;
+        right: 50px;
+        display: block;
+
+        .social-links--large .icon {
+            width: 24px;
+            height: 24px;
+        }
+    }
+}
+
 .site-header-sections {
     flex-direction: row-reverse;
 }
 
 .site-header__logo-wrapper {
-    margin: 0 4rem;
+    @media only screen and (min-width: $bp-tablet) {
+        margin: 0 4rem;
+    }
 }
 
 .social-links--large .icon {
