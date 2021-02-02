@@ -175,12 +175,23 @@
         Use the uploaded logo from theme settings if enabled.
         Site name gets precedence with `h1` tag on homepage, div on other pages.
         {% endcomment %}
+        {% comment %}
+        ========================
+            Custom Theme Modification:
+            Hardcode menu links to show on tablet and wider.
+            Class: site-header__custom-nav-link
+        ========================
+        {% endcomment %}
+        <div class="navigation__link">
+            <a href="/about-tink" class="site-header__custom-nav-link">
+                About
+            </a>
+        </div>
         {% if request.page_type == 'index' %}
           <h1 class="site-header__logo-wrapper h4" itemscope itemtype="http://schema.org/Organization">
         {% else %}
           <div class="site-header__logo-wrapper h4" itemscope itemtype="http://schema.org/Organization">
         {% endif %}
-
         <a href="{{ routes.root_url }}" itemprop="url" class="site-header__logo">
           {%- capture image_size %}x{{ section.settings.logo_max_height }}{% endcapture -%}
 
@@ -213,6 +224,11 @@
         {% else %}
           </div>
         {% endif %}
+        <div class="navigation__link">
+            <a href="/contact" class="site-header__custom-nav-link">
+                Contact
+            </a>
+        </div>
       </div>
       {% comment %} <div class="site-header__section site-header__section--button">
         <a href="{{ routes.cart_url }}" class="btn btn--clear btn--square btn--hover-scale site-header__cart ajax-cart__toggle" aria-expanded="false">

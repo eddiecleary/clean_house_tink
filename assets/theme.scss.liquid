@@ -9237,14 +9237,33 @@ Header
     }
 }
 
+.site-header__section {
+    align-items: center;
+}
+
+.navigation__link .site-header__custom-nav-link {
+    font-size: rem(14);
+    margin-bottom: -7px;
+    display: none;
+
+    @media (min-width: $bp-tablet) {
+        display: block;
+    }
+}
+
 .site-header-sections {
     flex-direction: row-reverse;
+}
+
+.site-header__logo-wrapper {
+    margin: 0 4rem;
 }
 
 .social-links--large .icon {
     height: 33px;
     width: 33px;
 }
+
 
 {% comment %}
 
