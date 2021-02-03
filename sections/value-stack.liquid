@@ -1,0 +1,46 @@
+<div class="value-stack custom-content-wrapper--bottom-margin">
+    <p class="value-item">
+        {{ section.settings.stack1 }}
+    </p>
+    <p class="value-item value-item--middle">
+        {{ section.settings.stack2 }}
+    </p>
+    <p class="value-item value-item--last">
+        {{ section.settings.stack3 }}
+    </p>
+</div>
+
+{% schema %}
+{
+  "name": {
+    "en": "Value Stack"
+  },
+  "class": "value-stack",
+  "settings": [
+      {
+          "id": "stack1",
+          "type": "text",
+          "label": "Value Item 1",
+          "default": "Value item 1"
+      },
+      {
+          "id": "stack2",
+          "type": "text",
+          "label": "Value Item 2",
+          "default": "Value item 2"
+      },
+      {
+          "id": "stack3",
+          "type": "text",
+          "label": "Value Item 3",
+          "default": "Value item 3"
+      }
+  ],
+  "presets": [
+      {
+          "name": "Value Stack",
+          "category": "Text"
+      }
+  ]
+}
+{% endschema %}
