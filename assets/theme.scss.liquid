@@ -9201,11 +9201,139 @@ $fast-drawer-transition: transform 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
 Custom Theme Modifications Below
 ===================================
 
+{% endcomment %}
+
+{% comment %}
+
+===================================
+Vendor Styles
+===================================
+
+{% endcomment %}
+
+{% comment %} slick.scss {% endcomment %}
+
+/* Slider */
+
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+.slick-list {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    &:focus {
+        outline: none;
+    }
+
+    &.dragging {
+        cursor: pointer;
+        cursor: hand;
+    }
+}
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+    position: relative;
+    left: 0;
+    top: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+}
+.slick-slide {
+    float: left;
+    height: 100%;
+    min-height: 1px;
+    [dir="rtl"] & {
+        float: right;
+    }
+    img {
+        display: block;
+    }
+    &.slick-loading img {
+        display: none;
+    }
+
+    display: none;
+
+    &.dragging img {
+        pointer-events: none;
+    }
+
+    .slick-initialized & {
+        display: block;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+
+    .slick-vertical & {
+        display: block;
+        height: auto;
+        border: 1px solid transparent;
+    }
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+
+{% comment %} slick.scss End {% endcomment %}
+
+{% comment %}
+
+===================================
+Vendor Styles End
+===================================
+
+{% endcomment %}
+
+
+{% comment %}
+
 ===================================
 Variables
 ===================================
 
 {% endcomment %}
+
+
 
 $cream: #f4f2f0;
 $bp-tablet: 768px;
@@ -9418,27 +9546,169 @@ Value Stack End
 {% comment %}
 
 ===================================
-Featured Slider
+Featured Slider (Custom)
 ===================================
 
 {% endcomment %}
 
-.featured-slider__slide {
-    text-align: left;
-}
+#featured-slider-16123647301470cf42 {
+    height: 100%;
 
-.featured-slider__slide-content {
-    max-width: clamp(270px, 52.5%, 500px);
-}
+    .featured-slider__cover {
+        height: 75vh;
+        position: relative;
+    }
 
-.featured-slider__slide-title {
-    line-height: 1.25;
+    .featured-slider__cover-background {
+        width: 100%;
+        height: 75vh;
+    }
+
+    .featured-slider__cover-background-image {
+        height: 100%;
+    }
+
+    .featured-slider__cover-title {
+        opacity: 1;
+        border: 0;
+    }
+
+    .featured-slider__cover-content {
+        top: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .featured-slider__slick-slider {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .featured-slider__slick-container {
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 70px;
+        position: relative;
+    }
+
+    .featured-slider__slick-image {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+    }
+
+    .slick-prev,
+    .slick-next,
+    .slick-dots {
+        position: absolute;
+        bottom: 0;
+    }
+
+    .slick-arrow {
+        border: 0;
+        background: transparent;
+    }
+
+    .slick-prev {
+        left: 0;
+    }
+
+    .slick-next {
+        right: 0;
+    }
+
+    .slick-dots {
+        display: flex;
+        left: 50%;
+        transform: translateX(-50%);
+        list-style: none;
+        margin: 0;
+        margin-bottom: 7px;
+
+        button {
+            font-size: 0;
+            line-height: 0;
+
+            display: block;
+
+            width: 20px;
+            height: 20px;
+            padding: 5px;
+
+            cursor: pointer;
+
+            color: transparent;
+            border: 0;
+            outline: none;
+            background: transparent;
+        }
+
+        button:hover,
+        button:focus {
+            outline: none;
+        }
+
+        button::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background-color: transparent;
+            border: 2px solid $settings-color-primary-body-text;
+            border-radius: 50%;
+            display: block;
+        }
+
+        li.slick-active button:before {
+            background-color: $settings-color-primary-body-text;
+        }
+    }
+
+    @include media-query($medium-up) {
+        display: flex;
+        height: 90vh;
+
+        .featured-slider__cover {
+            width: 50%;
+            height: 100%;
+        }
+
+        .featured-slider__cover-background {
+            height: 100%;
+        }
+
+        .featured-slider__slick-slider {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .featured-slider__slick-container {
+            width: clamp(300px, 85%, 500px);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .featured-slider__slick-image {
+            height: auto;
+        }
+
+        .featured-slider__cover-content {
+            width: 75%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
 }
 
 {% comment %}
 
 ===================================
-Featured Slider End
+Featured Slider (Custom) End
 ===================================
 
 {% endcomment %}
