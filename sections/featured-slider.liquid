@@ -73,7 +73,7 @@
           <div class="featured-slider__slide-content">
             {% if block.settings.show_image %}
               {% if block.settings.slide_image %}
-                <div class="featured-slider__slide-image-container" style="padding-top: {{ 1 | divided_by: block.settings.slide_image.aspect_ratio | times: 100}}%">
+                <div class="featured-slider__slide-image-container border" style="padding-top: {{ 1 | divided_by: block.settings.slide_image.aspect_ratio | times: 100}}%">
                   {% assign img_url = block.settings.slide_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
                   <img class="featured-slider__slide-image lazyload"
                     data-src="{{ img_url }}"

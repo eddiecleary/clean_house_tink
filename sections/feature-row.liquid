@@ -33,7 +33,7 @@
 {% capture image_layout %}
   <div class="feature-row__item feature-row__image-wrapper">
     {% if section.settings.image != blank %}
-      <div class="feature-row__image feature-row__image--{{ section.id }}{% if image_crop %} feature-row__image-crop{% endif %} lazyload" data-sizes="auto" data-bgset="{% include 'bgset', image: section.settings.image %}"></div>
+      <div class="feature-row__image feature-row__image--{{ section.id }}{% if image_crop %} feature-row__image-crop{% endif %} lazyload border" data-sizes="auto" data-bgset="{% include 'bgset', image: section.settings.image %}"></div>
 
       <noscript>
         <div class="feature-row__image feature-row__image--{{ section.id }}{% if image_crop %} feature-row__image-crop{% endif %}" style="background-image: {{ section.settings.image | img_url: 'master' }}"></div>
