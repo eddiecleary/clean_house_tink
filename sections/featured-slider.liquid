@@ -73,7 +73,7 @@
           <div class="featured-slider__slide-content">
             {% if block.settings.show_image %}
               {% if block.settings.slide_image %}
-                <div class="featured-slider__slide-image-container border" style="padding-top: {{ 1 | divided_by: block.settings.slide_image.aspect_ratio | times: 100}}%">
+                <div class="featured-slider__slide-image-container" style="padding-top: {{ 1 | divided_by: block.settings.slide_image.aspect_ratio | times: 100}}%">
                   {% assign img_url = block.settings.slide_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
                   <img class="featured-slider__slide-image lazyload"
                     data-src="{{ img_url }}"
@@ -89,14 +89,6 @@
             {% endif %}
             {% if block.settings.slide_title != blank %}
               <h3 class="featured-slider__slide-title h6" style="color: {{ section.settings.text_color }}">{{ block.settings.slide_title }}</h3>
-            {% endif %}
-            {% comment %}
-                ==============
-                Custom Mod: Added slide richtext
-                ==============
-            {% endcomment %}
-            {% if block.settings.slide_copy != blank %}
-                <p class="featured-slider__slide-copy" style="color: {{ section.settings.text_color }}">{{ block.settings.slide_copy }}</p>
             {% endif %}
             {% if block.settings.slide_button_text != blank %}
               <a class="btn featured-slider__slide-link{% if section.settings.use_second_button %} btn--secondary{% endif %}" href="{{ block.settings.slide_button_url }}">{{ block.settings.slide_button_text }}</a>
