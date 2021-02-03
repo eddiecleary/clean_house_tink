@@ -90,7 +90,14 @@
             {% if block.settings.slide_title != blank %}
               <h3 class="featured-slider__slide-title h6" style="color: {{ section.settings.text_color }}">{{ block.settings.slide_title }}</h3>
             {% endif %}
-
+            {% comment %}
+                ==============
+                Custom Mod: Added slide richtext
+                ==============
+            {% endcomment %}
+            {% if block.settings.slide_copy != blank %}
+                <p class="featured-slider__slide-copy" style="color: {{ section.settings.text_color }}">{{ block.settings.slide_copy }}</p>
+            {% endif %}
             {% if block.settings.slide_button_text != blank %}
               <a class="btn featured-slider__slide-link{% if section.settings.use_second_button %} btn--secondary{% endif %}" href="{{ block.settings.slide_button_url }}">{{ block.settings.slide_button_text }}</a>
             {% endif %}
@@ -1234,6 +1241,13 @@
             "zh-CN": "特色多属性",
             "zh-TW": "精選子類選項"
           }
+        },
+        {
+            "type": "richtext",
+            "id": "slide_copy",
+            "label": {
+                "en": "Text"
+            }
         },
         {
           "type": "text",
