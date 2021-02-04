@@ -9211,7 +9211,6 @@ Variables
 {% endcomment %}
 
 $cream: #f4f2f0;
-$bp-tablet: 768px;
 
 {% comment %}
 
@@ -9332,14 +9331,15 @@ Header
     margin-bottom: -7px;
     display: none;
 
-    include media-query($medium-up) {
+    @include media-query($medium-up) {
         display: block;
     }
 }
 
 .navigation__social-sharing.site-header__custom-social-link {
     display: none;
-    @include media-query($medium-up) {
+
+    @media only screen and (min-width: 950px) {
         margin: 0;
         position: absolute;
         right: 50px;
