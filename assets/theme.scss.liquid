@@ -9305,7 +9305,7 @@ Header
 
 .site-header__navigation {
 
-    @media only screen and (min-width: $bp-tablet) {
+    @include media-query($medium-up) {
         display: none;
     }
 }
@@ -9314,7 +9314,7 @@ Header
     align-items: center;
     justify-content: flex-start;
 
-    @media only screen and (min-width: $bp-tablet) {
+    @include media-query($medium-up) {
         justify-content: center;
     }
 }
@@ -9322,7 +9322,7 @@ Header
 .site-header__logo-image {
     max-height: 45px;
 
-    @media only screne and (min-width: $bp-tablet) {
+    @include media-query($medium-up) {
         max-height: 60px;
     }
 }
@@ -9332,14 +9332,14 @@ Header
     margin-bottom: -7px;
     display: none;
 
-    @media (min-width: $bp-tablet) {
+    include media-query($medium-up) {
         display: block;
     }
 }
 
 .navigation__social-sharing.site-header__custom-social-link {
     display: none;
-    @media only screen and (min-width: $bp-tablet) {
+    @include media-query($medium-up) {
         margin: 0;
         position: absolute;
         right: 50px;
@@ -9357,7 +9357,7 @@ Header
 }
 
 .site-header__logo-wrapper {
-    @media only screen and (min-width: $bp-tablet) {
+    @include media-query($medium-up) {
         margin: 0 4rem;
     }
 }
