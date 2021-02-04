@@ -1,53 +1,28 @@
 <style>
-  #BeforeAfter-Section-{{ section.id }} .quotes-slider {
+  #QuotesSection-{{ section.id }} .quotes-slider {
     background-color: {{ section.settings.color_bg }};
   }
-  #BeforeAfter-Section-{{ section.id }} .quote,
-  #BeforeAfter-Section-{{ section.id }} .quote__author,
-  #BeforeAfter-Section-{{ section.id }} .quote__heading {
+  #QuotesSection-{{ section.id }} .quote,
+  #QuotesSection-{{ section.id }} .quote__author,
+  #QuotesSection-{{ section.id }} .quote__heading {
     color: {{ section.settings.color_text }};
   }
 </style>
 
 {% if section.blocks.size > 0 %}
-  <div id="BeforeAfter-Section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="quotes-section">
+  <div id="QuotesSection-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="quotes-section">
     <div class="quotes-slider text-center" data-count="{{ section.blocks.size }}" data-speed="{{ section.settings.autoplay_speed }}">
       {% for block in section.blocks %}
         <div class="quotes-slide quotes-slide--{{ forloop.index0 }} quotes-slide--{{ block.id }}{% if forloop.first == true %} quotes-slide--visible{% endif %}" {{ block.shopify_attributes }}>
-            <div class="quotes__slide-inner">
-                {% if block.settings.quote != blank %}
-                    <div class="h4 quote rte-setting">{{ block.settings.quote }}</div>
-                {% endif %}
-                {% if block.settings.author != blank %}
-                    <span class="quote__author">{{ block.settings.author | escape }}</span>
-                {% endif %}
-            </div>
-            <div class="quotes__slide-inner">
-                <div class="beforeafter__images-container">
-                    <div class="beforeafter__image-container">
-                        {% if block.settings.before_image != blank %}
-                            {% assign img_url = block.settings.before_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-                                <img class="beforeafter__image lazyload"
-                                    data-src="{{ img_url }}"
-                                    data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                                    data-aspectratio="{{ block.settings.before_image.aspect_ratio }}"
-                                    data-sizes="auto"
-                                    alt="{{ block.settings.before_image.alt | escape }}">
-                        {% endif %}
-                    </div>
-                    <div class="beforeafter__image-container">
-                        {% if block.settings.after_image != blank %}
-                            {% assign img_url = block.settings.after_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-                                <img class="beforeafter__image lazyload"
-                                    data-src="{{ img_url }}"
-                                    data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                                    data-aspectratio="{{ block.settings.after_image.aspect_ratio }}"
-                                    data-sizes="auto"
-                                    alt="{{ block.settings.after_image.alt | escape }}">
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
+          {% if block.settings.heading != blank %}
+            <h2 class="quote__heading">{{ block.settings.heading | escape }}</h2>
+          {% endif %}
+          {% if block.settings.quote != blank %}
+            <div class="h4 quote rte-setting">{{ block.settings.quote }}</div>
+          {% endif %}
+          {% if block.settings.author != blank %}
+            <span class="quote__author">{{ block.settings.author | escape }}</span>
+          {% endif %}
         </div>
       {% endfor %}
     </div>
@@ -59,9 +34,29 @@
 {% schema %}
 {
   "name": {
-    "en": "Before/After Slider"
+    "cs": "Ohlasy",
+    "da": "Udtalelser",
+    "de": "Testimonials",
+    "en": "Testimonials",
+    "es": "Testimonios",
+    "fi": "Suositukset",
+    "fr": "Témoignages",
+    "it": "Testimonial",
+    "ja": "お客様の声",
+    "ko": "추천",
+    "nb": "Tilbakemeldinger fra kunder",
+    "nl": "Getuigenissen",
+    "pl": "Referencje",
+    "pt-BR": "Depoimentos",
+    "pt-PT": "Testemunhos",
+    "sv": "Kundberättelser",
+    "th": "เสียงชื่นชมจากลูกค้า",
+    "tr": "Kullanıcı görüşleri",
+    "vi": "Chứng thực",
+    "zh-CN": "感言",
+    "zh-TW": "推薦文"
   },
-  "class": "index-section index-section--before-after-slider",
+  "class": "index-section index-section--quotes",
   "max_blocks": 5,
   "settings": [
     {
@@ -257,7 +252,7 @@
   ],
   "blocks": [
     {
-      "type": "image",
+      "type": "quote",
       "name": {
         "cs": "Ohlas",
         "da": "Udtalelse",
@@ -283,18 +278,31 @@
       },
       "settings": [
         {
-            "type": "image_picker",
-            "id": "before_image",
-            "label": {
-                "en": "Before Image"
-            }
-        },
-        {
-            "type": "image_picker",
-            "id": "after_image",
-            "label": {
-                "en": "After Image"
-            }
+          "type": "text",
+          "id": "heading",
+          "label": {
+            "cs": "Nadpis",
+            "da": "Overskrift",
+            "de": "Titel",
+            "en": "Heading",
+            "es": "Título",
+            "fi": "Otsake",
+            "fr": "Titre",
+            "it": "Heading",
+            "ja": "見出し",
+            "ko": "제목",
+            "nb": "Overskrift",
+            "nl": "Kop",
+            "pl": "Nagłówek",
+            "pt-BR": "Título",
+            "pt-PT": "Título",
+            "sv": "Rubrik",
+            "th": "ส่วนหัว",
+            "tr": "Başlık",
+            "vi": "Tiêu đề",
+            "zh-CN": "标题",
+            "zh-TW": "標題"
+          }
         },
         {
           "type": "richtext",
@@ -423,10 +431,59 @@
     }
   ],
   "presets": [
-      {
-          "name": "Before/After Slider",
-          "category": "Image"
-      }
+    {
+      "name": {
+        "cs": "Ohlasy",
+        "da": "Udtalelser",
+        "de": "Testimonials",
+        "en": "Testimonials",
+        "es": "Testimonios",
+        "fi": "Suositukset",
+        "fr": "Témoignages",
+        "it": "Testimonial",
+        "ja": "お客様の声",
+        "ko": "추천",
+        "nb": "Tilbakemeldinger fra kunder",
+        "nl": "Getuigenissen",
+        "pl": "Referencje",
+        "pt-BR": "Depoimentos",
+        "pt-PT": "Testemunhos",
+        "sv": "Kundberättelser",
+        "th": "เสียงชื่นชมจากลูกค้า",
+        "tr": "Kullanıcı görüşleri",
+        "vi": "Chứng thực",
+        "zh-CN": "感言",
+        "zh-TW": "推薦文"
+      },
+      "category": {
+        "cs": "Text",
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Text",
+        "es": "Texto",
+        "fi": "Teksti",
+        "fr": "Texte",
+        "it": "Testo",
+        "ja": "テキスト",
+        "ko": "텍스트",
+        "nb": "Tekst",
+        "nl": "Tekst",
+        "pl": "Tekst",
+        "pt-BR": "Texto",
+        "pt-PT": "Texto",
+        "sv": "Text",
+        "th": "ข้อความ",
+        "tr": "Metin",
+        "vi": "Văn bản",
+        "zh-CN": "文本",
+        "zh-TW": "文字"
+      },
+      "blocks": [
+        {
+          "type": "quote"
+        }
+      ]
+    }
   ]
 }
 {% endschema %}
