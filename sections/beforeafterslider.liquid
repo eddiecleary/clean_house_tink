@@ -19,15 +19,15 @@
       {% for block in section.blocks %}
         <div class="quotes-slide quotes-slide--{{ forloop.index0 }} quotes-slide--{{ block.id }}{% if forloop.first == true %} quotes-slide--visible{% endif %}" {{ block.shopify_attributes }}>
             <div class="quotes__slide-inner quotes__slide-inner--quotation">
-                <div class="beforeafter__quotation">
-                    {%- include 'icon-quotation' -%}
-                </div>
                 {% if block.settings.quote != blank %}
                     <div class="h4 quote rte-setting">{{ block.settings.quote }}</div>
                 {% endif %}
                 {% if block.settings.author != blank %}
-                    <span class="quote__author">{{ block.settings.author | escape }}</span>
+                    <span class="quote__author">— {{ block.settings.author | escape }}</span>
                 {% endif %}
+                {% comment %} <div class="beforeafter__quotation">
+                    {%- include 'icon-quotation' -%}
+                </div> {% endcomment %}
             </div>
             <div class="quotes__slide-inner">
                 <div class="beforeafter__images-container">

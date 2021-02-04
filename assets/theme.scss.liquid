@@ -3736,6 +3736,7 @@ $color-select-input: #fff;
 /*================ Misc ================*/
 
 .customer-form__title {
+
   @include media-query($small) {
     margin: ($gutter * 2) 0;
     text-align: center;
@@ -9422,6 +9423,7 @@ Value Stack Section (user added, not included with original theme)
     flex-wrap: wrap;
     padding-left: 20px;
     padding-right: 20px;
+    padding-bottom: 50px !important;
 }
 
 .value-item--middle {
@@ -9489,6 +9491,18 @@ Specific Sections
     }
 }
 
+.feature-row--1612308875d6f62d09 {
+    height: 600px;
+
+    .feature-row__text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 0;
+    }
+}
+
 {% comment %}
 
 ===================================
@@ -9507,9 +9521,14 @@ Slideshow Section
 
 #Slideshow-1612310507e557a68b {
     outline: none;
+    height: 650px !important;
 
     .slideshow__heading.h1 {
         margin-bottom: 30px;
+    }
+
+    .slideshow__text-container {
+        top: 45%;
     }
 
     .slideshow__text-content {
@@ -9563,38 +9582,39 @@ Before/After Section
 
 #BeforeAfter-Section-1612317519b15780cd {
     padding-top: 100px;
-    padding-bottom: 100px;
-
-    @include media-query($medium-up) {
-        padding-bottom: 0;
-    }
 }
 
 .quotes-slide {
     display: flex;
     align-items: center;
-    flex-direction: column;
-
-    @include media-query($medium-up) {
-        flex-direction: row;
-    }
+    flex-direction: column-reverse;
 }
 
 .quotes-slider {
     overflow: visible;
+
+    @include media-query($medium-up) {
+        height: 600px;
+    }
 }
 
 .quotes__slide-inner {
     width: 100%;
+    position: relative;
 
     &.quotes__slide-inner--quotation {
-        margin-top: 80px;
-        margin-bottom: 80px;
+        margin-top: 60px;
     }
+}
 
-    @include media-query($medium-up) {
-        width: 50%;
-    }
+.quote__author {
+    font-weight: bold;
+}
+
+.quotes__slide-inner--quotation {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .beforeafter__images-container {
@@ -9603,12 +9623,20 @@ Before/After Section
     margin-left: auto;
     margin-right: auto;
     border: 4px solid $color-primary;
+
+    @include media-query($medium-up) {
+        width: 65%;
+    }
 }
 
 .beforeafter__image-container {
     width: 50%;
     height: 300px;
     position: relative;
+
+    @include media-query($medium-up) {
+        height: 400px;
+    }
 }
 
 .beforeafter__image {
@@ -9634,14 +9662,9 @@ Before/After Section
 
 .beforeafter__quotation {
     width: 60px;
-    position: absolute;
     left: 80px;
     top: 0;
     position: relative;
-
-    @include media-query($medium-up) {
-        position: absolute;
-    }
 
     svg {
         width: 100%;
@@ -9670,7 +9693,7 @@ Video Section
 {% endcomment %}
 
 #VideoSection--1612462640b8207bb5 {
-    height: 75vh;
+    height: 525px;
 
     .video-section__load-player-button-circle {
         border-color: $color-primary !important;
