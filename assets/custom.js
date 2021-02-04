@@ -16,7 +16,7 @@ $('.featured-slider__slick-container').slick({
         </svg>
         </button>`,
     dots: true,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2700,
     pauseOnFocus: false,
     pauseOnDotsHover: true,
