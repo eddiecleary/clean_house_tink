@@ -9456,7 +9456,7 @@ Featured Slider
     .featured-slider__slide-content {
         width: 85%;
         max-width: 100%;
-        width: clamp(250px, 100%, 450px);
+        width: clamp(250px, 85%, 450px);
     }
 
     .featured-slider__slide-image-container {
@@ -9465,6 +9465,30 @@ Featured Slider
 
     .featured-slider__slide-content {
         text-align: left;
+    }
+
+    .featured-slider__cover-background {
+        height: 40vh !important;
+    }
+
+    .featured-slider__slides-container {
+        height: 80vh;
+    }
+
+    .featured-slider__cover-content {
+        top: 40vh;
+    }
+
+    .reveal-slider__nav {
+        bottom: 215px;
+
+        @include media-query($medium-up) {
+            bottom: 20px;
+        }
+    }
+
+    &.featured-slider.open .featured-slider__slides-container {
+        height: 91vh;
     }
 }
 
@@ -9492,14 +9516,22 @@ Specific Sections
 }
 
 .feature-row--1612308875d6f62d09 {
-    height: 600px;
+    height: 700px;
+
+    @include media-query($medium-up) {
+        height: 600px;
+    }
 
     .feature-row__text {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         justify-content: center;
-        padding: 0;
+        padding: 0 15px;
+
+        @include media-query($medium-up) {
+            align-items: flex-start;
+        }
     }
 }
 
@@ -9538,7 +9570,7 @@ Slideshow Section
 
 #Slideshow-1612310507e557a68b {
     outline: none;
-    height: 490px !important;
+    height: 560px !important;
 
     .slideshow__label {
         position: absolute;
@@ -9549,8 +9581,7 @@ Slideshow Section
         background-color: $color-primary;
 
         @include media-query($medium-up) {
-        padding: 19px 80px;
-
+            padding: 19px 80px;
         }
 
         h4 {
@@ -9560,7 +9591,11 @@ Slideshow Section
             letter-spacing: 1.5px;
             text-transform: uppercase;
             margin: 0;
-            font-size: rem(19);
+            font-size: rem(15);
+
+            @include media-query($medium-up) {
+                font-size: rem(19);
+            }
         }
     }
 
@@ -9651,6 +9686,8 @@ Before/After Section
 
     &.quotes__slide-inner--quotation {
         margin-top: 60px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
 
@@ -9837,7 +9874,10 @@ Footer (custom)
     }
 
     .site-footer__copyright {
-        margin-top: 30px;
+
+        @include media-query($medium-up) {
+            margin-top: 30px;
+        }
     }
 
     .social-links__icon {
