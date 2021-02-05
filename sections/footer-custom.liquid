@@ -27,7 +27,7 @@
 
     <div class="site-footer__top">
         <div class="navigation__link">
-            <a href="/pages/about-tink" class="site-header__custom-nav-link">
+            <a href="/pages/about-tink" class="site-header__custom-nav-link footer">
                 About
             </a>
         </div>
@@ -39,7 +39,7 @@
             </a>
         {% endif %}
         <div class="navigation__link">
-            <a href="/pages/contact" class="site-header__custom-nav-link">
+            <a href="/pages/contact" class="site-header__custom-nav-link footer">
                 Contact
             </a>
         </div>
@@ -58,7 +58,7 @@
         <small class="site-footer__powered-by">{{ powered_by_link }}</small>
       </div>
 
-      {% comment %} {%- if section.settings.show_payment_icons -%}
+      {%- if section.settings.show_payment_icons -%}
         <div class="site-footer__payment-icons flex-footer__item--one-third">
           {%- unless shop.enabled_payment_types == empty -%}
             <span class="visually-hidden">{{ 'general.payment.method' | t }}</span>
@@ -71,7 +71,7 @@
             </ul>
           {%- endunless -%}
         </div>
-      {%- endif -%} {% endcomment %}
+      {%- endif -%}
     </div>
   </div>
 
