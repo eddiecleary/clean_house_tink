@@ -9211,7 +9211,7 @@ Variables
 
 {% endcomment %}
 
-$cream: #f4f2f0;
+$cream: #faf9f6;
 
 {% comment %}
 
@@ -9519,12 +9519,54 @@ Slideshow Section
 
 {% endcomment %}
 
+.slideshow--adapt {
+    background-color: $cream;
+    position: relative;
+}
+
+.slideshow__text-container-mobile {
+    position: absolute;
+    transform: none;
+    color: $cream;
+    top: 23%;
+}
+
+.slideshow__heading.h1 {
+    margin-bottom: 20px;
+    color: $cream;
+}
+
 #Slideshow-1612310507e557a68b {
     outline: none;
-    height: 650px !important;
+    height: 490px !important;
+
+    .slideshow__label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        padding: 12px 36px;
+        background-color: $color-primary;
+
+        @include media-query($medium-up) {
+        padding: 19px 80px;
+
+        }
+
+        h4 {
+            font-family: 'Avenir Next', sans-serif;
+            color: $cream;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin: 0;
+            font-size: rem(19);
+        }
+    }
 
     .slideshow__heading.h1 {
         margin-bottom: 30px;
+        color: $cream;
     }
 
     .slideshow__text-container {
@@ -9561,6 +9603,10 @@ Slideshow Section
             border-color: $color-primary !important;
         }
     }
+
+    @include media-query($medium-up) {
+        height: 650px !important;
+    }
 }
 
 
@@ -9588,6 +9634,7 @@ Before/After Section
     display: flex;
     align-items: center;
     flex-direction: column-reverse;
+    padding: 0px;
 }
 
 .quotes-slider {
@@ -9619,7 +9666,7 @@ Before/After Section
 
 .beforeafter__images-container {
     display: flex;
-    width: 85%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     border: 4px solid $color-primary;
@@ -9693,7 +9740,11 @@ Video Section
 {% endcomment %}
 
 #VideoSection--1612462640b8207bb5 {
-    height: 525px;
+    height: 350px;
+
+    @include media-query($medium-up) {
+        height: 525px;
+    }
 
     .video-section__load-player-button-circle {
         border-color: $color-primary !important;
@@ -9712,6 +9763,35 @@ Video Section
 
 ===================================
 Video Section End
+===================================
+
+{% endcomment %}
+
+{% comment %}
+
+===================================
+Insta-feed App
+===================================
+
+{% endcomment %}
+
+#insta-feed {
+
+    .instafeed-container {
+        width: 50% !important;
+        padding-top: 50% !important;
+
+        @include media-query($medium-up) {
+            width: 25% !important;
+            padding-top: 25% !important;
+        }
+    }
+}
+
+{% comment %}
+
+===================================
+Insta-feed App End
 ===================================
 
 {% endcomment %}
