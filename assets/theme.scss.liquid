@@ -9702,7 +9702,11 @@ Slideshow Section
         position: relative;
 
         .slideshow {
-            max-height: 481px;
+            max-height: 510px;
+
+            @media only screen and (min-width: 413px) {
+                max-height: 570px;
+            }
 
             @include media-query($medium-up) {
                 max-height: 611px;
@@ -9714,13 +9718,17 @@ Slideshow Section
         position: absolute;
         transform: none;
         color: $cream;
-        top: 15%;
+        top: 16%;
         max-width: 410px;
         left: 50%;
         transform: translateX(-50%);
 
+        @media only screen and (min-width: 374px) {
+            top: 18%;
+        }
+
         @media only screen and (min-width: 413px) {
-            top: 17%;
+            top: 21%;
         }
     }
 
