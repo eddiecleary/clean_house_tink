@@ -16,7 +16,7 @@
   {% if image_crop %}
     @media screen and (min-width: 750px) {
       .feature-row--{{ section.id }} .feature-row__image-wrapper {
-        background-color: {{ section.settings.background_color | color_lighten: 5 }};
+        background-color: {{ section.settings.background_color }};
       }
     }
   {% endif %}
