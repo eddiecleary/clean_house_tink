@@ -192,7 +192,7 @@
         {% else %}
           <div class="site-header__logo-wrapper h4" itemscope itemtype="http://schema.org/Organization">
         {% endif %}
-        <a href="{{ routes.root_url }}" itemprop="url" class="site-header__logo">
+        {% comment %} <a href="{{ routes.root_url }}" itemprop="url" class="site-header__logo">
           {%- capture image_size %}x{{ section.settings.logo_max_height }}{% endcapture -%}
 
           {% if section.settings.logo %}
@@ -217,6 +217,9 @@
           {% else %}
             {{ shop.name }}
           {% endif %}
+        </a> {% endcomment %}
+        <a href="{{ routes.root_url }}" itemprop="url" class="site-header__logo">
+            <img class="site-header__logo-image" src="https://cdn.shopify.com/s/files/1/0524/1421/8413/files/logo-line.svg?v=1614015847" alt="" itemprop="logo" />
         </a>
 
         {% if request.page_type == 'index' %}
