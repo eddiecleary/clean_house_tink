@@ -15,51 +15,62 @@
 
 {% if section.blocks.size > 0 %}
   {% comment %} data-section-type="quotes-section" <---this code was removed from the div below this comment in order to disable the default slider functionality. the slider functionality is removed because it does not have support for previous/next buttons. slick slider a 3rd party slider is loaded instead. {% endcomment %}
+    {% comment %} <div class="beforeafter__quotation">
+    {%- include 'icon-quotation' -%}
+    </div> {% endcomment %}
   <div id="BeforeAfter-Section-{{ section.id }}">
-    <div class="beforeafter__slider text-center container">
-      {% for block in section.blocks %}
-        <div class="beforeafter__slide">
-            <div class="beforeafter__slide-inner beforeafter__slide-inner--quotation">
-                {% if block.settings.quote != blank %}
-                    <div class="h4 quote rte-setting">{{ block.settings.quote }}</div>
-                {% endif %}
-                {% if block.settings.author != blank %}
-                    <span class="beforeafter__slide-author">— {{ block.settings.author | escape }}</span>
-                {% endif %}
-                {% comment %} <div class="beforeafter__quotation">
-                    {%- include 'icon-quotation' -%}
-                </div> {% endcomment %}
+    <div class="text-center container">
+        <div class="beforeafter__slider-wrap">
+            <div class="beforeafter__image-slider-wrap">
+                <span class="beforeafter__label beforeafter__label--before">Before</span>
+                <span class="beforeafter__label beforeafter__label--after">After</span>
+                <div class="beforeafter__image-slider-track">
+                    {% for block in section.blocks %}
+                        <div class="beforeafter__image-slide">
+                            <div class="beforeafter__image-wrap">
+                                {% if block.settings.before_image != blank %}
+                                    {% assign img_url = block.settings.before_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                                        <img class="beforeafter__image lazyload"
+                                            data-src="{{ img_url }}"
+                                            data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                                            data-aspectratio="{{ block.settings.before_image.aspect_ratio }}"
+                                            data-sizes="auto"
+                                            alt="{{ block.settings.before_image.alt | escape }}">
+                                {% endif %}
+                            </div>
+                            <div class="beforeafter__image-wrap">
+                                {% if block.settings.after_image != blank %}
+                                    {% assign img_url = block.settings.after_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                                        <img class="beforeafter__image lazyload"
+                                            data-src="{{ img_url }}"
+                                            data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                                            data-aspectratio="{{ block.settings.after_image.aspect_ratio }}"
+                                            data-sizes="auto"
+                                            alt="{{ block.settings.after_image.alt | escape }}">
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
-            <div class="beforeafter__slide-inner">
-                <div class="beforeafter__images-container">
-                    <div class="beforeafter__image-container">
-                        {% if block.settings.before_image != blank %}
-                            {% assign img_url = block.settings.before_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-                                <img class="beforeafter__image lazyload"
-                                    data-src="{{ img_url }}"
-                                    data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                                    data-aspectratio="{{ block.settings.before_image.aspect_ratio }}"
-                                    data-sizes="auto"
-                                    alt="{{ block.settings.before_image.alt | escape }}">
-                        {% endif %}
-                        <p class="beforeafter__label">Before</p>
-                    </div>
-                    <div class="beforeafter__image-container">
-                        {% if block.settings.after_image != blank %}
-                            {% assign img_url = block.settings.after_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-                                <img class="beforeafter__image lazyload"
-                                    data-src="{{ img_url }}"
-                                    data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                                    data-aspectratio="{{ block.settings.after_image.aspect_ratio }}"
-                                    data-sizes="auto"
-                                    alt="{{ block.settings.after_image.alt | escape }}">
-                        {% endif %}
-                        <p class="beforeafter__label">After</p>
-                    </div>
+            <div class="beforeafter__quote-slider-wrap">
+                <div class="beforeafter__quote-slider-track">
+                    {% for block in section.blocks %}
+                        <div class="beforeafter__quote-slide">
+                            {% if block.settings.quote != blank %}
+                                <div class="h4 quote rte-setting">{{ block.settings.quote }}</div>
+                            {% endif %}
+                            {% if block.settings.author != blank %}
+                                <span class="beforeafter__author">{{ block.settings.author | escape }}</span>
+                            {% endif %}
+                            {% if block.settings.hometown != blank %}
+                                <span class="beforeafter__hometown">{{ block.settings.hometown | escape }}</span>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
-      {% endfor %}
     </div>
   </div>
 {% else %}
@@ -537,6 +548,13 @@
             "vi": "Tên tác giả",
             "zh-CN": "作者姓名",
             "zh-TW": "作者名稱"
+          }
+        },
+        {
+          "type": "text",
+          "id": "hometown",
+          "label": {
+            "en": "Author's hometown"
           }
         }
       ]

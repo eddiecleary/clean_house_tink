@@ -9224,6 +9224,10 @@ Base Styles
 
 {% endcomment %}
 
+#preview-bar-iframe {
+  display: none !important;
+}
+
 body {
     font-size: 18px;
 
@@ -9330,6 +9334,10 @@ Header
 
 {% endcomment %}
 
+#shopify-section-header {
+    max-height: 79px;
+}
+
 .site-header--transparent {
     background-color: $settings-color-secondary-bg;
 }
@@ -9344,7 +9352,6 @@ Header
 .site-header__section {
     align-items: center;
     justify-content: flex-start;
-
     @include media-query($medium-up) {
         justify-content: center;
     }
@@ -9400,6 +9407,11 @@ Header
     }
 }
 
+{% comment %} Disables nav popdown effect when page is scrolled upward {% endcomment %}
+.site-header--fixed {
+    position: static;
+}
+
 .social-links--large .icon {
     height: 33px;
     width: 33px;
@@ -9424,19 +9436,62 @@ Hero Section (text with image overlay in customizer)
 
 .hero--161230209774d22f94 {
     background-position: center bottom;
+    background-size: contain;
+    background-color: $color-main-bg !important;
 
     &.hero--100vh {
-        height: 100vh;
+        height: calc(100vh - 79px);
+    }
+
+    &.hero.lazyloaded {
+        background-color: white;
+    }
+
+    .page-width {
+        max-width: 100%;
+        padding: 0 70px;
+        margin-top: -60px;
+    }
+
+    .hero__subtitle {
+        display: block;
+        font-style: italic;
+        text-align: center;
+    }
+
+    .hero__overlay-title {
+        font-size: rem(48);
+        margin-bottom: 0;
+    }
+
+    .hero__text-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: auto;
+        max-width: 700px;
     }
 
     .hero__overlay-title.hide-divider::before {
         display: none;
     }
 
-    .mega-subtitle {
+    .hero__btn {
+        margin-top: 0 !important;
+        box-shadow:
+            0 2.4px 7px rgba(0, 0, 0, 0.21), 0 5px 13px rgba(0, 0, 0, 0.08)
+        ;
+    }
 
-        @include media-query ($medium-up) {
-            margin: 20px auto;
+    .mega-subtitle {
+        max-width: 400px;
+        letter-spacing: 1.2px;
+        line-height: 1.35;
+        margin-top: 25px;
+        margin-bottom: 25px;
+
+        p {
+            text-align: center;
         }
     }
 }
@@ -9757,9 +9812,7 @@ Slideshow Section
             background-color: $color-primary;
 
             @include media-query($medium-up) {
-                padding: 12px 60px;
-                left: 0;
-                transform: none;
+                padding: 12px 60px;;
             }
 
             h4 {
@@ -9849,106 +9902,134 @@ Before/After Section
 
 #BeforeAfter-Section-1612317519b15780cd {
     padding-top: 70px;
-}
 
-.quotes-slide {
-    display: flex;
-    align-items: center;
-    flex-direction: column-reverse;
-    padding: 0px;
-}
 
-.quotes-slider {
-    overflow: visible;
-    max-width: 490px;
-
-    @include media-query($medium-up) {
-        height: 600px;
-        max-width: 600px;
+    .beforeafter__slider-wrap {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
     }
-}
 
-.quotes__slide-inner {
-    width: 100%;
-    position: relative;
+    .beforeafter__image-slider-wrap {
+        position: relative;
+        border: 4px solid $color-primary;
+        max-width: 750px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-    &.quotes__slide-inner--quotation {
-        margin-top: 20px;
-        padding-left: 15px;
-        padding-right: 15px;
+    .beforeafter__label {
+        position: absolute;
+        display: block;
+        padding: 5px 13px;
+        margin: 0;
+        bottom: 0;
+        background-color: $color-primary;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 12px;
+        letter-spacing: 1.3px;
+        z-index: 10;
 
-        @media only screen and (min-width: 549px) {
-            margin-top: 40px;
+        &.beforeafter__label--after {
+            right: 0;
+        }
+
+        &.beforeafter__label--before {
+            left: 0;
         }
     }
-}
 
-.quote__author {
-    font-weight: bold;
-}
-
-.quotes__slide-inner--quotation {
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.beforeafter__images-container {
-    display: flex;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    border: 4px solid $color-primary;
-    max-width: 490px;
-
-    @include media-query($medium-up) {
-        max-width: 100%;
-    }
-}
-
-.beforeafter__image-container {
-    width: 50%;
-    {% comment %} height: 300px; {% endcomment %}
-    position: relative;
-
-    @include media-query($medium-up) {
-        {% comment %} height: 320px; {% endcomment %}
-    }
-}
-
-.beforeafter__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.beforeafter__label {
-    position: absolute;
-    display: block;
-    padding: 5px 13px;
-    margin: 0;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: $color-primary;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 12px;
-    letter-spacing: 1.3px;
-}
-
-.beforeafter__quotation {
-    width: 60px;
-    left: 80px;
-    top: 0;
-    position: relative;
-
-    svg {
+    .beforeafter__image-slide {
+        display: flex;
         width: 100%;
-        opacity: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
 
-        path {
-            fill: $color-primary;
+        @include media-query($medium-up) {
+        }
+    }
+
+    .beforeafter__image-wrap {
+        width: 50%;
+        position: relative;
+        padding-top: 66%;
+        height: 100%;
+
+        @include media-query($medium-up) {
+        }
+    }
+
+    .beforeafter__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .beforeafter__quote-slider-wrap {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        max-width: 820px;
+    }
+
+    .beforeafter__author {
+        font-weight: bold;
+        font-size: rem(23);
+        font-family: 'Playfair Display', serif;
+        letter-spacing: 2px;
+        margin-left: -27px;
+
+        &::before {
+            content: '— ';
+        }
+    }
+
+    .beforeafter__hometown {
+        display: block;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: rem(14);
+        letter-spacing: 1.5px;
+        margin-top: 6px;
+    }
+
+    .beforeafter__quote-slide {
+
+        .quote {
+            font-size: rem(18);
+
+            p {
+                display: inline;
+            }
+
+            &::before {
+                content: '"';
+            }
+
+            &::after {
+                content:'"';
+            }
+        }
+    }
+
+    .beforeafter__quotation {
+        width: 60px;
+        left: 80px;
+        top: 0;
+        position: relative;
+
+        svg {
+            width: 100%;
+            opacity: 50%;
+
+            path {
+                fill: $color-primary;
+            }
         }
     }
 }
@@ -9970,6 +10051,8 @@ Hero (CTA) Section
 {% endcomment %}
 
 .hero--16124626106636e7db {
+    margin-top: 100px;
+    padding-bottom: 100px;
 
     .hero__inner {
         padding-top: 70px;
@@ -9980,6 +10063,10 @@ Hero (CTA) Section
         max-width: 690px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .hero__text-wrap {
+        text-align: center;
     }
 }
 
@@ -10282,6 +10369,26 @@ Slick Slider Start
 }
 .slick-arrow.slick-hidden {
     display: none;
+}
+.slick-arrow {
+    position: absolute;
+    top: 222px;
+    z-index: 2;
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    img {
+        width: 25px;
+    }
+
+    &.slick-next {
+        right: -50px;
+    }
+
+    &.slick-previous {
+        left: -50px;
+    }
 }
 
 {% comment %}
