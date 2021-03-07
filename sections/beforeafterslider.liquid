@@ -14,22 +14,23 @@
 </style>
 
 {% if section.blocks.size > 0 %}
-  <div id="BeforeAfter-Section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="quotes-section">
-    <div class="quotes-slider text-center container" data-count="{{ section.blocks.size }}" data-speed="{{ section.settings.autoplay_speed }}">
+  {% comment %} data-section-type="quotes-section" <---this code was removed from the div below this comment in order to disable the default slider functionality. the slider functionality is removed because it does not have support for previous/next buttons. slick slider a 3rd party slider is loaded instead. {% endcomment %}
+  <div id="BeforeAfter-Section-{{ section.id }}">
+    <div class="beforeafter__slider text-center container">
       {% for block in section.blocks %}
-        <div class="quotes-slide quotes-slide--{{ forloop.index0 }} quotes-slide--{{ block.id }}{% if forloop.first == true %} quotes-slide--visible{% endif %}" {{ block.shopify_attributes }}>
-            <div class="quotes__slide-inner quotes__slide-inner--quotation">
+        <div class="beforeafter__slide">
+            <div class="beforeafter__slide-inner beforeafter__slide-inner--quotation">
                 {% if block.settings.quote != blank %}
                     <div class="h4 quote rte-setting">{{ block.settings.quote }}</div>
                 {% endif %}
                 {% if block.settings.author != blank %}
-                    <span class="quote__author">— {{ block.settings.author | escape }}</span>
+                    <span class="beforeafter__slide-author">— {{ block.settings.author | escape }}</span>
                 {% endif %}
                 {% comment %} <div class="beforeafter__quotation">
                     {%- include 'icon-quotation' -%}
                 </div> {% endcomment %}
             </div>
-            <div class="quotes__slide-inner">
+            <div class="beforeafter__slide-inner">
                 <div class="beforeafter__images-container">
                     <div class="beforeafter__image-container">
                         {% if block.settings.before_image != blank %}
@@ -71,7 +72,7 @@
     "en": "Before/After Slider"
   },
   "class": "index-section index-section--before-after-slider",
-  "max_blocks": 5,
+  "max_blocks": 12,
   "settings": [
     {
       "type": "color",
