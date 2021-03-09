@@ -12,8 +12,8 @@ $('.beforeafter__quote-slider-track').slick({
 
 $('.beforeafter__image-slider-track').slick({
     asNavFor: '.beforeafter__quote-slider-track',
-    prevArrow: '<button type="button" class="slick-previous"><img src="https://cdn.shopify.com/s/files/1/0524/1421/8413/files/arrow-prev.svg?v=1615139527" /></button>',
-    nextArrow: '<button type="button" class="slick-next"><img src="https://cdn.shopify.com/s/files/1/0524/1421/8413/files/arrow-next.svg?v=1615139527" /></button>',
+    prevArrow: '<button type="button" class="slick-previous"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 52"  fill-rule="evenodd" xmlns:v="https://vecta.io/nano"><g transform="matrix(.640262 0 0 .681108 10.0011 10.2966)"><clipPath id="A"><path d="M-15.62-15.117h58.257V61.14H-15.62z"/></clipPath><g clip-path="url(#A)"><g transform="matrix(-7.10971 0 0 -5.74715 43.5363 63.2612)"><path d="M1.008,1.511L6.5,7.004L1.008,12.496" fill="none" stroke="#9caf88" stroke-width="1.9"/></g></g></g></svg></button>',
+    nextArrow: '<button type="button" class="slick-next"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 52"  fill-rule="evenodd" xmlns:v="https://vecta.io/nano"><g transform="matrix(.640262 0 0 .681108 10.0011 10.2966)"><clipPath id="A"><path d="M-15.62-15.117h58.257V61.14H-15.62z"/></clipPath><g clip-path="url(#A)"><path d="M-8.616-8.903L30.43 22.666-8.616 54.23" fill="none" stroke="#9caf88" stroke-width="12.282"/></g></g></svg></button>',
     fade: true,
     autoplay: false,
     autoplaySpeed: 6000,
