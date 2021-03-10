@@ -6552,7 +6552,9 @@ $site-header-wrapper-color: rgba($color-header, 0);
   background-color: $color-header;
   z-index: $z-index-header;
   transition: background-color 0.25s ease-out;
+  box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.18);
   -webkit-transform:translate3d(0,0,0);
+
   .site-header--transparent & {
     background-color: $site-header-wrapper-color;
   }
@@ -9248,8 +9250,10 @@ Components
 
 {% endcomment %}
 
-html {
+html,
+body {
     padding-bottom: 0px !important;
+    padding-top: 0px !important;
 }
 
 input[type="text"],
@@ -9261,7 +9265,7 @@ textarea {
 
 input:focus,
 textarea:focus {
-    outline: 3px solid $color-primary;
+    outline: 1px solid $color-primary;
 }
 
 .container {
@@ -10304,6 +10308,11 @@ Hero (CTA) Section
     .hero__inner {
         padding-top: 70px;
         padding-bottom: 50px;
+
+        @media (min-width: 990px) {
+            padding-top: 130px;
+            padding-bottom: 130px;
+        }
     }
 
     .hero__overlay-title {
@@ -10496,6 +10505,37 @@ Footer (custom)
 
 ===================================
 Footer (custom) End
+===================================
+
+{% endcomment %}
+
+{% comment %}
+
+===================================
+Contact Form
+===================================
+
+{% endcomment %}
+
+#contact_form {
+    input[type=submit] {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        outline: 2px solid $color-main-bg;
+        outline-offset: -6px;
+    }
+}
+
+.shopify-challenge__button.btn {
+    outline: 2px solid $color-main-bg;
+    outline-offset: -6px;
+}
+
+{% comment %}
+
+===================================
+Contact Form End
 ===================================
 
 {% endcomment %}

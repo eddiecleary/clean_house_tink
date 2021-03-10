@@ -31,7 +31,7 @@
 {% endif %}
 
 {% capture image_layout %}
-  <div class="feature-row__item feature-row__image-wrapper">
+  <div data-aos="fade-up" class="feature-row__item feature-row__image-wrapper">
     {% if section.settings.image != blank %}
       <div class="feature-row__image feature-row__image--{{ section.id }}{% if image_crop %} feature-row__image-crop{% endif %} lazyload border" data-sizes="auto" data-bgset="{% include 'bgset', image: section.settings.image %}"></div>
 
@@ -49,7 +49,7 @@
     {{ image_layout }}
   {% endif %}
 
-  <div class="feature-row__item feature-row__text">
+  <div data-aos="fade-up" class="feature-row__item feature-row__text">
     {% if section.settings.title != blank %}
       <h2 class="feature-row__heading h3 separator" data-animate>{{ section.settings.title | escape }}</h2>
     {% endif %}

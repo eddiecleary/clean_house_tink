@@ -54,7 +54,7 @@
        tabindex="-1"
        aria-label="slideshow">
 
-       <div class="slideshow__label">
+       <div data-aos="fade-right" data-aos-offset="400" class="slideshow__label">
             <h4>4-Step Process</h4>
        </div>
     {%- if section.blocks.size > 0 -%}
@@ -147,7 +147,7 @@
       <div class="slideshow__buttons critical-hide container" data-count="{{ section.blocks.size }}">
         {%- for block in section.blocks -%}
           <div class="slideshow__button slideshow__button--{{ section.blocks.size }}{% if block.settings.cta_link != blank %} slideshow__button--link{% endif %}">
-            <button class="slideshow__button-label text-title btn--clear">
+            <button data-aos="fade-down" class="slideshow__button-label text-title btn--clear">
               <span class="visually-hidden">{{ 'sections.slider.slide' | t: number: forloop.index }}</span>
               <span class="slideshow__button-label-text">{{ block.settings.button }}</span>
             </button>

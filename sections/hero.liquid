@@ -26,21 +26,21 @@
     <div class="page-width">
         <div class="hero__text-wrap">
             {% if section.settings.title != blank %}
-                <h2 class="hero__overlay-title separator {% if section.settings.hide_divider %} hide-divider {% endif %}{% if section.settings.show_overlay %} hero__overlay-title--overlay{% endif %}{% if section.settings.text_size == 'large' %} h1{% endif %}" data-animate>{{ section.settings.title | escape }}</h2><span class="hero__subtitle">{{ section.settings.subtitle | escape }}</span>
+                <h2 data-aos="fade-up" data-aos-delay="0" class="hero__overlay-title separator {% if section.settings.hide_divider %} hide-divider {% endif %}{% if section.settings.show_overlay %} hero__overlay-title--overlay{% endif %}{% if section.settings.text_size == 'large' %} h1{% endif %}" data-animate>{{ section.settings.title | escape }}</h2><span data-aos="fade-up" data-aos-delay="100" class="hero__subtitle">{{ section.settings.subtitle | escape }}</span>
             {% endif %}
             <div class="hero__mobile-image-wrap">
                 {% if section.settings.mobile_image != blank %}
                     {% assign img_url = section.settings.mobile_image | img_url: '750x' %}
-                        <img class="hero__mobile-image"
+                        <img data-aos="fade-up" data-aos-delay="200" class="hero__mobile-image"
                             src="{{ img_url }}"
                             alt="{{ section.settings.mobile_image.alt | escape }}">
                 {% endif %}
             </div>
             {% if section.settings.text != blank %}
-                <div class="rte-setting mega-subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">{{ section.settings.text }}</div>
+                <div data-aos="fade-up" data-aos-offset="0" data-aos-delay="300" class="rte-setting mega-subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">{{ section.settings.text }}</div>
             {% endif %}
             {% if section.settings.button_label != blank %}
-                <a href="{{ section.settings.button_link }}" class="btn{% if section.settings.use_second_button %} btn--secondary{% endif %} hero__btn">
+                <a data-aos="fade-up" data-aos-offset="0" data-aos-delay="400" href="{{ section.settings.button_link }}" class="btn{% if section.settings.use_second_button %} btn--secondary{% endif %} hero__btn">
                 {{ section.settings.button_label }}
                 </a>
             {% endif %}

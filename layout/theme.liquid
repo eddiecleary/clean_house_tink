@@ -34,6 +34,7 @@
   {{ content_for_header }}
   {% include 'critical-css' %}
   {% include 'load-css' %}
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
   <script>
     var theme = {
@@ -110,5 +111,15 @@
     <li id="a11y-refresh-page-message">{{ 'general.accessibility.refresh_page' | t }}</li>
     <li id="a11y-selection-message">{{ 'general.accessibility.selection_help' | t }}</li>
   </ul>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+        once: true,
+        easing: 'ease-in-out',
+        duration: 300,
+        offset: 200
+    });
+  </script>
 </body>
 </html>

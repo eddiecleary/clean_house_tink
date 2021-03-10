@@ -13,7 +13,7 @@
 <div class="custom-content-wrapper custom-content-wrapper--{{ section.id }} {% if section.settings.top_margin %}custom-content-wrapper--top-margin{% endif %} {% if section.settings.bottom_margin %}custom-content-wrapper--bottom-margin{% endif %} one-whole" data-section-id="{{ section.id }}" data-section-type="custom-content">
   <div class="page-width">
     {% if section.settings.heading_text != blank %}
-      <h2 class="custom-content__section-header text-center">{{ section.settings.heading_text | escape }}</h2>
+      <h2 data-aos="fade-up" class="custom-content__section-header text-center">{{ section.settings.heading_text | escape }}</h2>
     {% endif %}
 
     <div class="custom-content">
@@ -76,12 +76,12 @@
                 </style>
 
 
-                <div class="text-{{ block.settings.align_text }}">
+                <div  class="text-{{ block.settings.align_text }}">
                   {% if block.settings.heading_text != blank %}
-                    <h2 class="custom__block-heading-text {{ block.settings.heading_style }}">{{ block.settings.heading_text | escape }}</h2>
+                    <h2 data-aos="fade-up" data-aos-delay="300" class="custom__block-heading-text {{ block.settings.heading_style }}">{{ block.settings.heading_text | escape }}</h2>
                   {% endif %}
                   {% if block.settings.paragraph_text != blank %}
-                    <div class="custom__block-body-text rte-setting">{{ block.settings.paragraph_text }}</div>
+                    <div data-aos="fade-up" data-aos-delay="350"  class="custom__block-body-text rte-setting">{{ block.settings.paragraph_text }}</div>
                   {% endif %}
                 </div>
               {% when 'video' %}
